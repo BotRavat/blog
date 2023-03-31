@@ -4,7 +4,7 @@ export default function SinglePost() {
   return (
     <div className="singlePost">
       <div className="singlePostWrapper">
-        <img className="singlePostImg" src="https:source.unsplash.com/1600x900" alt="" />
+        <img className="singlePostImg" src="https:source.unsplash.com/1600x900/?mango" alt="" />
         <h1 className="singlePostTitle">
           Neque porro quisquam est
           <div className="singlePostEdit">
