@@ -7,13 +7,13 @@ import { Context } from "../../context/Context";
 export default function Login() {
   const userRef = useRef();
   const passwordRef = useRef();
-  const {dispatch, isFetching } = useContext(Context);
+  const {dispatch, isFetching ,BASE_URL} = useContext(Context);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     dispatch({ type: "LOGIN_START" });
     try {
-      const res = await axios.post("auth/login", {
+      const res = await axios.post(`${BASE_URL}/auth/login`, {
         username: userRef.current.value,
         password: passwordRef.current.value,
       });

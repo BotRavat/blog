@@ -1,16 +1,18 @@
 import { Link, useLocation } from "react-router-dom";
 import "./singlePost.css";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import axios from "axios";
+import { Context } from "../../context/Context";
 
 export default function SinglePost() {
+  const{BASE_URL}=useContext(Context);
   const location = useLocation();
   const path = location.pathname.split("/")[2];
   const [post, setPost] = useState({});
 
   useEffect(() => {
     const getPost = async () => {
-      const res = await axios.get("/posts/" + path);
+      const res = await axios.get(`${BASE_URL}/posts/${path}`);
       setPost(res.data);
     };
     getPost();

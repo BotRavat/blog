@@ -11,10 +11,13 @@ export const Context = createContext(INITIAL_STATE);
 
 export const ContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(Reducer, INITIAL_STATE);
+  const BASE_URL=process.env.REACT_APP_BASE_URL || "http://localhost:8800/api";
+
 
   useEffect(() => {
     localStorage.setItem("user", JSON.stringify(state.user));
   }, [state.user]);
+
   return (
     <Context.Provider
       value={{
@@ -22,6 +25,7 @@ export const ContextProvider = ({ children }) => {
         isFetching: state.isFetching,
         error: state.error,
         dispatch,
+        BASE_URL,
       }}
     >
       {children}
