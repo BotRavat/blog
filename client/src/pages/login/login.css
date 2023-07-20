@@ -43,6 +43,13 @@
     border-radius:10px ;
 }
 
+.loginButton:disabled{
+    cursor: not-allowed;
+    background-color:rgb(186, 134, 134);
+    scale: 1.5;
+    transition-duration: 200ms;
+}
+
 .loginRegisterButton{
     position: absolute;
     top: 60px;
