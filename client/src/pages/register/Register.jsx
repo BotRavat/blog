@@ -1,18 +1,21 @@
 import { NavLink } from "react-router-dom";
 import "./register.css";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import axios from "axios";
+import { Context } from "../../context/Context";
 
 export default function Register() {
+  const{BASE_URL}=useContext(Context);
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("auth/register", { username, email, password });
+      const res = await axios.post(`${BASE_URL}/auth/register`, { username, email, password });
     //   console.log(res);
       res && window.location.replace("/login");
     } catch (error) {
