@@ -8,7 +8,7 @@ export default function Settings() {
   const { user, dispatch,BASE_URL } = useContext(Context);
   const [username, setUserName] = useState(user.username);
   const [email, setEmail] = useState(user.email);
-  const [password, setPassword] = useState("");
+  const [password, setPassword] = useState(user.password);
   const [file, setFile] = useState(null);
   const [success,setSuccess] = useState(false);
 
@@ -19,7 +19,7 @@ export default function Settings() {
       userId: user._id,
       username,
       email,
-      password,
+      password:password,
     };
     if (file) {
       const data = new FormData();
