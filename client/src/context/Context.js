@@ -11,7 +11,7 @@ export const Context = createContext(INITIAL_STATE);
 
 export const ContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(Reducer, INITIAL_STATE);
-  const BASE_URL=process.env.REACT_APP_BASE_URL || "http://localhost:8800/api";
+  const BASE_URL= "http://localhost:8800";
 
 
   useEffect(() => {

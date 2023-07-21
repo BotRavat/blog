@@ -8,14 +8,15 @@ import { useLocation } from "react-router-dom";
 import { Context } from "../../context/Context";
 
 export default function Home() {
-  const{BASE_URL}=useContext(Context);
+const{BASE_URL}=useContext(Context);
 const [posts,setPosts]=useState([]);
 const {search}=useLocation();
 
 useEffect(()=>{
    const fetchPosts=async ()=>{
-     const res=await axios.get(`${BASE_URL}/posts${search}`);
+     const res=await axios.get(`${BASE_URL}/api/posts${search}`);
      setPosts(res.data);
+     console.log(res.data)
    }
    fetchPosts();
 },[search]);
