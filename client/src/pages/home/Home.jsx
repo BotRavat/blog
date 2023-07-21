@@ -16,7 +16,6 @@ useEffect(()=>{
    const fetchPosts=async ()=>{
      const res=await axios.get(`${BASE_URL}/api/posts${search}`);
      setPosts(res.data);
-     console.log(res.data)
    }
    fetchPosts();
 },[search]);
